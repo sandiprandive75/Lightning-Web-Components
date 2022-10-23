@@ -1,0 +1,29 @@
+<template>
+    <lightning-card>
+        <lightning-record-edit-form object-api-name="Patient__c" record-id={patientSelectedId} onsuccess ={patientEdited}>
+            <lightning-input-field field-name='Doctor__c'></lightning-input-field>
+            <lightning-input-field field-name='Patient_Name__c'></lightning-input-field>
+            <lightning-input-field field-name='Mobile_Number__c'></lightning-input-field>
+            <lightning-input-field field-name='Need_Help_In__c'></lightning-input-field>
+            <lightning-input-field field-name='Problem_Description__c'></lightning-input-field>
+            <lightning-input-field onchange={showOperationRecord} field-name='Operation_Needed__c'></lightning-input-field>
+            <lightning-button onclick={cancelPayment} class="slds-var-m-top_small slds-var-p-horizontal_small" type="cancel" label="Back"></lightning-button>
+            <lightning-button variant="brand" class="slds-var-m-top_small" type="submit" label="Save"></lightning-button>
+        </lightning-record-edit-form>
+        <template if:true={showOperationFields}>
+            <lightning-record-edit-form object-api-name="Operation__c" onsuccess={operationRecordCreated}>
+                <lightning-input-field field-name='Kind_of_surgery__c'></lightning-input-field>
+                <lightning-input-field value={docId} field-name='Doctor__c'></lightning-input-field>
+                <lightning-input-field field-name='Date_and_time_of_Surgery__c'></lightning-input-field>
+                <lightning-input-field value={patientSelectedId} field-name='Patient__c'></lightning-input-field>
+                <lightning-input-field field-name='Staff_1__c'></lightning-input-field>
+                <lightning-input-field field-name='Staff_2__c'></lightning-input-field>
+                <lightning-input-field field-name='Actual_Started_time__c'></lightning-input-field>
+                <lightning-input-field field-name='Actual_Ended_time__c'></lightning-input-field>
+                <lightning-input-field field-name='Operation_Status__c'></lightning-input-field>
+                <lightning-button onclick={cancelPayment} class="slds-var-m-top_small slds-var-p-horizontal_small" type="cancel" label="Back"></lightning-button>
+                <lightning-button variant="brand" class="slds-var-m-top_small" type="submit" label="Save"></lightning-button>
+            </lightning-record-edit-form>
+        </template>
+    </lightning-card>    
+</template>

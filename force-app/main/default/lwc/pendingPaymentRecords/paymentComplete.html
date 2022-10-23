@@ -1,0 +1,12 @@
+<template>
+    <lightning-card>
+        <lightning-record-edit-form object-api-name="Payment__c" onsuccess ={refreshPage}>
+            <lightning-input-field field-name='Patient__c' value={paymentSelectedId}></lightning-input-field>
+            <lightning-input-field field-name='Payment_Amount__c' value={patientRemainingAmount}></lightning-input-field>
+            <lightning-input-field field-name='Mode_of_Payment__c'></lightning-input-field>
+            <lightning-input-field field-name='Payment_Reason__c'></lightning-input-field>
+            <lightning-button onclick={cancelPayment} class="slds-var-m-top_small slds-var-p-horizontal_small" type="cancel" label="Back"></lightning-button>
+            <lightning-button variant="brand" class="slds-var-m-top_small" type="submit" label="Make Payment"></lightning-button>
+        </lightning-record-edit-form>
+    </lightning-card>
+</template>

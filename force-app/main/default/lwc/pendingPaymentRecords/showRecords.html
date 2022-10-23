@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title="Pending payment records" icon-name="custom:custom50">
+        <div class="slds-card__body slds-card__body_inner">
+        <template if:true={patients}>
+                <template for:each={patients} for:item="patient">
+                        <div class="custom-box slds-box slds-var-p-around_small slds-text-align_left" key={patient.Id} >
+                            <lightning-layout-item padding="around-small">
+                            <lightning-avatar src="/bad/image/url.jpg" initials="" fallback-icon-name="standard:avatar"  alternative-text="Bob Wilson" class="slds-var-m-right_small"></lightning-avatar>
+                            <lightning-button-group>
+                                <lightning-button class="btn" value={patient.Id} onclick={openPatient} label={patient.Patient_Name__c}></lightning-button>
+                            </lightning-button-group>
+                                    <div class="slds-var-p-top_small"><b>Patient Mobile:</b>  {patient.Mobile_Number__c}</div>
+                                    <div class="slds-var-p-top_small"><b>Doctor Name:</b>  {patient.Doctor__r.Doctor_Name__c}</div>
+                                    <div class="slds-var-p-bottom_small"><b>Pending Amount:</b>{patient.Remaining_Amount_To_Pay__c}</div>
+                            </lightning-layout-item>
+                            <lightning-button class="slds-var-p-horizontal_small" variant="brand" label="Make Payment" onclick={switchTemplate} value={patient.Id}></lightning-button>
+                        </div>   
+                </template>
+        </template>
+        <template if:true={error}>
+            <h2 >{error}</h2>
+        </template>
+        </div>
+    </lightning-card>
+</template>
