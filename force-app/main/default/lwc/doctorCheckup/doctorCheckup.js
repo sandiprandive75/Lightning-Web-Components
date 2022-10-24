@@ -34,7 +34,7 @@ export default class DoctorCheckup extends NavigationMixin(LightningElement) {
     switchTemplate(event){ 
         this.patientSelectedId = event.target.value;
         this.patients.forEach(record => {
-            if(record.Id == this.paymentSelectedId){
+            if(record.Id == this.patientSelectedId){
                 this.docId = record.Doctor__c;
             }
          })
@@ -80,7 +80,7 @@ export default class DoctorCheckup extends NavigationMixin(LightningElement) {
 
     patientEdited(){
         const evt = new ShowToastEvent({
-            title: `Record Saved!`,
+            title: `Record changes Saved!`,
             message: `Patient checking Done!`,
             variant: "success"
         });

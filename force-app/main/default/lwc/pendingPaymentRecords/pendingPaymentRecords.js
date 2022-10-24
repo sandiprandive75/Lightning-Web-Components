@@ -38,15 +38,6 @@ export default class PendingPaymentRecords extends NavigationMixin(LightningElem
             }
          })
         this.showTemplateOne = !this.showTemplateOne;
-
-        // go to patient record page
-        this[NavigationMixin.Navigate]({
-            type: 'standard__recordPage',
-            attributes: {
-                recordId: this.paymentSelectedId,
-                actionName: 'view'
-            }
-        });
     }
 
     cancelPayment(){
@@ -61,6 +52,15 @@ export default class PendingPaymentRecords extends NavigationMixin(LightningElem
         });
         this.dispatchEvent(evt);
         this.showTemplateOne = !this.showTemplateOne;
+
+        // go to patient record page
+        this[NavigationMixin.Navigate]({
+            type: 'standard__recordPage',
+            attributes: {
+                recordId: this.paymentSelectedId,
+                actionName: 'view'
+            }
+        });
     }
 
     openPatient(event){
