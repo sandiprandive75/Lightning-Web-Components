@@ -47,7 +47,7 @@ export default class PendingPaymentRecords extends NavigationMixin(LightningElem
     refreshPage(){
         const evt = new ShowToastEvent({
             title: `Payment Successful!`,
-            message: `Payment ID: ${this.paymentSelectedId}`,
+            message: `Thank You!`,
             variant: "success"
         });
         this.dispatchEvent(evt);

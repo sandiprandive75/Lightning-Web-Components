@@ -69,13 +69,7 @@ export default class DoctorCheckup extends NavigationMixin(LightningElement) {
         });
         this.dispatchEvent(evt);
 
-        this[NavigationMixin.Navigate]({
-            type: 'standard__recordPage',
-            attributes: {
-                recordId: this.patientSelectedId,
-                actionName: 'view'
-            }
-        });
+        window.location.reload(true);
     }
 
     patientEdited(){
